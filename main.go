@@ -22,6 +22,8 @@ func main() {
 	router := httprouter.New()
 	router.GET("/", handlers.Home)
 
+	router.GET("/version", handlers.Version)
+
 	log.Print("We are ready to handle requests.")
-	http.ListenAndServe(port, router)
+	log.Print(http.ListenAndServe(":"+port, router))
 }
